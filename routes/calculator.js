@@ -14,9 +14,21 @@ router.get('/sum', async function(req, res, next) {
       }
 
       res.render('calculator', renderJSON)
+      return renderJSON
   }
   catch(e) {
-    res.render('error', e)
+    return e.message
+  }
+})
+
+router.post('/sum', async function(req, res, next) {
+  try {
+      result = await calculator.sum(req.body.first, req.body.last)
+      req.body.result = result
+      return result
+  }
+  catch(e) {
+    return e.message
   }
 })
 
@@ -32,9 +44,21 @@ router.get('/sub', async function(req, res, next) {
       }
 
       res.render('calculator', renderJSON)
+      return renderJSON
   }
   catch(e) {
-    res.render('error', e)
+    return e.message
+  }
+})
+
+router.post('/sub', async function(req, res, next) {
+  try {
+      result = await calculator.sub(req.body.first, req.body.last)
+      req.body.result = result
+      return result
+  }
+  catch(e) {
+    return e.message
   }
 })
 
@@ -50,9 +74,21 @@ router.get('/div', async function(req, res, next) {
       }
 
       res.render('calculator', renderJSON)
+      return renderJSON
   }
   catch(e) {
-    res.render('error', e)
+    return e.message
+  }
+})
+
+router.post('/div', async function(req, res, next) {
+  try {
+      result = await calculator.div(req.body.first, req.body.last)
+      req.body.result = result
+      return result
+  }
+  catch(e) {
+    return e.message
   }
 })
 
@@ -68,9 +104,21 @@ router.get('/mult', async function(req, res, next) {
       }
 
       res.render('calculator', renderJSON)
+      return renderJSON
   }
   catch(e) {
-    res.render('error', e)
+    return e.message
+  }
+})
+
+router.post('/div', async function(req, res, next) {
+  try {
+      result = await calculator.div(req.body.first, req.body.last)
+      req.body.result = result
+      return result
+  }
+  catch(e) {
+    return e.message
   }
 })
 
